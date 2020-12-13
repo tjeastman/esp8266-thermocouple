@@ -3,7 +3,6 @@
 
 #include <SPI.h>
 #include <cstdint>
-#include <utility>
 
 enum class TemperatureSensorStatus {
   ok,
@@ -17,7 +16,8 @@ public:
   TemperatureSensorReading(uint32_t);
   TemperatureSensorStatus status();
   bool valid();
-  std::pair<float, float> temperatures();
+  float temperature();
+  float temperature_internal();
 
 private:
   int temperature_ : 14;

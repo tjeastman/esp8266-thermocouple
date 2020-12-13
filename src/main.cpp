@@ -23,11 +23,10 @@ void loop() {
   }
 
   if (reading.valid()) {
-    auto temperatures = reading.temperatures();
     Serial.print("temperature (deg C): ");
-    Serial.print(temperatures.first);
+    Serial.print(reading.temperature());
     Serial.print(" ");
-    Serial.println(temperatures.second);
+    Serial.println(reading.temperature_internal());
   }
 
   delay(2000);

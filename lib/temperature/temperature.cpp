@@ -22,15 +22,18 @@ bool TemperatureSensorReading::valid() {
 
 TemperatureSensorStatus TemperatureSensorReading::status() { return status_; }
 
-std::pair<float, float> TemperatureSensorReading::temperatures() {
-  return std::make_pair(temperature_ * resolution_,
-                        temperature_internal_ * resolution_internal_);
+float TemperatureSensorReading::temperature() {
+  return temperature_ * resolution_;
+}
+
+float TemperatureSensorReading::temperature_internal() {
+  return temperature_internal_ * resolution_internal_;
 }
 
 const SPISettings TemperatureSensor::settings_{5000000, MSBFIRST, SPI_MODE0};
 
 TemperatureSensor::TemperatureSensor(SPIClass &bus, int pin)
-  : bus_(bus), chip_select_pin_(pin) {
+    : bus_(bus), chip_select_pin_(pin) {
   pinMode(chip_select_pin_, OUTPUT);
 }
 
