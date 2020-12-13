@@ -29,12 +29,12 @@ private:
 
 class TemperatureSensor {
 public:
-  TemperatureSensor(int, SPIClass &);
+  TemperatureSensor(SPIClass &, int);
   TemperatureSensorReading reading();
 
 private:
-  int chip_select_pin_;
   SPIClass &bus_;
+  int chip_select_pin_;
   const static SPISettings settings_;
 };
 

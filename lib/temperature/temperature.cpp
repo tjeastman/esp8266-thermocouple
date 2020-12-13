@@ -29,8 +29,8 @@ std::pair<float, float> TemperatureSensorReading::temperatures() {
 
 const SPISettings TemperatureSensor::settings_{5000000, MSBFIRST, SPI_MODE0};
 
-TemperatureSensor::TemperatureSensor(int pin, SPIClass &bus)
-    : chip_select_pin_(pin), bus_(bus) {
+TemperatureSensor::TemperatureSensor(SPIClass &bus, int pin)
+  : bus_(bus), chip_select_pin_(pin) {
   pinMode(chip_select_pin_, OUTPUT);
 }
 

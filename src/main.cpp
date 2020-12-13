@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <temperature.h>
 
-TemperatureSensor sensor = TemperatureSensor(D8, SPI);
+TemperatureSensor sensor = TemperatureSensor(SPI, D8);
 
 void setup() {
   Serial.begin(115200);
