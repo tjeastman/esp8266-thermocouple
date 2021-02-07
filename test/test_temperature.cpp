@@ -24,19 +24,6 @@ void test_temperature_sensor_reading_status() {
                     TemperatureSensorStatus::open_connection);
 }
 
-void test_temperature_sensor_reading_valid() {
-  TEST_ASSERT_TRUE(TemperatureSensorReading(0).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(1).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(2).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(3).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(4).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(5).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(6).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(7).valid());
-  TEST_ASSERT_TRUE(TemperatureSensorReading(8).valid());
-  TEST_ASSERT_FALSE(TemperatureSensorReading(0xffffffff).valid());
-}
-
 void test_temperature_sensor_reading_temperature() {
   TEST_ASSERT_EQUAL_FLOAT(1600.0,
                           TemperatureSensorReading(0x64000000).temperature());
@@ -78,7 +65,6 @@ void test_temperature_sensor_reading_temperature_internal() {
 void setup() {
   UNITY_BEGIN();
   RUN_TEST(test_temperature_sensor_reading_status);
-  RUN_TEST(test_temperature_sensor_reading_valid);
   RUN_TEST(test_temperature_sensor_reading_temperature);
   RUN_TEST(test_temperature_sensor_reading_temperature_internal);
   UNITY_END();

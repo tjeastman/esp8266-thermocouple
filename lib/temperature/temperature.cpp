@@ -16,10 +16,6 @@ TemperatureSensorReading::TemperatureSensorReading(uint32_t value)
   }
 }
 
-bool TemperatureSensorReading::valid() {
-  return status_ == TemperatureSensorStatus::ok;
-}
-
 TemperatureSensorStatus TemperatureSensorReading::status() { return status_; }
 
 float TemperatureSensorReading::temperature() {

@@ -20,9 +20,7 @@ void loop() {
     Serial.println("status: short_circuit_ground");
   } else if (status == TemperatureSensorStatus::short_circuit_vcc) {
     Serial.println("status: short_circuit_vcc");
-  }
-
-  if (reading.valid()) {
+  } else {
     Serial.print("temperature (deg C): ");
     Serial.print(reading.temperature());
     Serial.print(" ");

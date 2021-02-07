@@ -15,7 +15,6 @@ class TemperatureSensorReading {
 public:
   TemperatureSensorReading(uint32_t);
   TemperatureSensorStatus status();
-  bool valid();
   float temperature();
   float temperature_internal();
 
