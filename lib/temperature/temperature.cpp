@@ -4,7 +4,7 @@
 #include <utility>
 
 TemperatureSensorReading::TemperatureSensorReading(uint32_t value)
-  : temperature_(value >> 18), temperature_internal_((value >> 4) & 0x0fff) {
+    : temperature_(value >> 18), temperature_internal_((value >> 4) & 0x0fff) {
   if (value & 0x1) {
     status_ = TemperatureSensorStatus::open_connection;
   } else if (value & 0x2) {
