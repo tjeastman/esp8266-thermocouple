@@ -1,4 +1,6 @@
+#include "secrets.h"
 #include <Arduino.h>
+#include <ESP8266WiFi.h>
 #include <temperature.h>
 
 TemperatureSensor sensor = TemperatureSensor(SPI, D8);
@@ -9,6 +11,20 @@ void setup() {
 
   pinMode(D1, OUTPUT);
   digitalWrite(D1, HIGH);
+
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(NETWORK, PASSWORD);
+
+  Serial.print("connecting");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(1000);
+  }
+  Serial.println("OK");
+  Serial.print("connected to WiFi network with IP address ");
+  Serial.print(WiFi.localIP());
+  Serial.print(" and hostname ");
+  Serial.println(WiFi.hostname());
 }
 
 void loop() {
